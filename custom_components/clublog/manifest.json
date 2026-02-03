@@ -1,0 +1,13 @@
+{
+  "domain": "clublog",
+  "name": "ClubLog HA Bridge",
+  "codeowners": ["@pentafive"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/pentafive/clublog-ha-bridge",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/pentafive/clublog-ha-bridge/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

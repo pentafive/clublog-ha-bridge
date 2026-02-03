@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  clublog-ha-bridge:
+    container_name: clublog-ha-bridge
+    build: .
+    restart: unless-stopped
+    environment:
+      # ClubLog API Credentials (REQUIRED)
+      - CLUBLOG_API_KEY=${CLUBLOG_API_KEY}
+      - CLUBLOG_EMAIL=${CLUBLOG_EMAIL}
+      - CLUBLOG_APP_PASSWORD=${CLUBLOG_APP_PASSWORD}
+      - MY_CALLSIGN=${MY_CALLSIGN}
+      # Home Assistant MQTT Broker (REQUIRED)
+      - HA_MQTT_BROKER=${HA_MQTT_BROKER}
+      - HA_MQTT_PORT=${HA_MQTT_PORT:-1883}
+      - HA_MQTT_USER=${HA_MQTT_USER:-}
+      - HA_MQTT_PASS=${HA_MQTT_PASS:-}
+      # Polling Intervals (seconds)
+      - MATRIX_INTERVAL=${MATRIX_INTERVAL:-3600}
+      - WATCH_INTERVAL=${WATCH_INTERVAL:-600}
+      - MOST_WANTED_INTERVAL=${MOST_WANTED_INTERVAL:-86400}
+      - ACTIVITY_INTERVAL=${ACTIVITY_INTERVAL:-3600}
+      - EXPEDITIONS_INTERVAL=${EXPEDITIONS_INTERVAL:-3600}
+      # Home Assistant Discovery
+      - HA_DISCOVERY_PREFIX=${HA_DISCOVERY_PREFIX:-homeassistant}
+      - HA_ENTITY_BASE=${HA_ENTITY_BASE:-clublog}
+      # Debugging
+      - DEBUG_MODE=${DEBUG_MODE:-False}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro

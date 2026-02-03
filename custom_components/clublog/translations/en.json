@@ -1,0 +1,59 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "ClubLog Account",
+        "description": "Enter your ClubLog credentials to connect your account.",
+        "data": {
+          "callsign": "Callsign",
+          "api_key": "API Key",
+          "email": "Email",
+          "app_password": "Application Password"
+        },
+        "data_description": {
+          "callsign": "Your amateur radio callsign (e.g., W1AW)",
+          "api_key": "ClubLog API key (request at clublog.org/need_api.php)",
+          "email": "Email address associated with your ClubLog account",
+          "app_password": "Application Password generated in ClubLog Settings (not your main password)"
+        }
+      }
+    },
+    "error": {
+      "invalid_callsign": "Invalid callsign format. Please enter a valid amateur radio callsign.",
+      "api_key_required": "API key is required.",
+      "email_required": "Email address is required.",
+      "app_password_required": "Application Password is required.",
+      "cannot_connect": "Unable to connect to ClubLog. Check your credentials.",
+      "invalid_auth": "Invalid authentication. Check your API key, email, and application password."
+    },
+    "abort": {
+      "already_configured": "This callsign is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "ClubLog Options",
+        "description": "Configure polling intervals and display options"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "dxcc_worked_total": {
+        "name": "DXCC Worked"
+      },
+      "dxcc_confirmed_total": {
+        "name": "DXCC Confirmed"
+      },
+      "dxcc_verified_total": {
+        "name": "DXCC Verified"
+      }
+    },
+    "binary_sensor": {
+      "api_status": {
+        "name": "API Status"
+      }
+    }
+  }
+}

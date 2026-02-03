@@ -8,7 +8,6 @@ via MQTT discovery.
 import json
 import logging
 import signal
-import sys
 import time
 
 import paho.mqtt.client as mqtt

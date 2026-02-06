@@ -2,7 +2,7 @@ FROM python:3.12-slim
 
 LABEL maintainer="pentafive"
 LABEL description="ClubLog to Home Assistant MQTT Bridge"
-LABEL version="0.1.0"
+LABEL version="0.2.0"
 
 WORKDIR /app
 

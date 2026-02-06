@@ -3,6 +3,9 @@
 import os
 import sys
 
+VERSION = "0.2.0"
+USER_AGENT = f"clublog-ha-bridge/{VERSION}"
+
 
 def str_to_bool(value: str) -> bool:
     """Convert string to boolean."""
@@ -41,9 +44,13 @@ if not HA_MQTT_BROKER:
 # Polling intervals (seconds)
 MATRIX_INTERVAL = str_to_int(os.environ.get("MATRIX_INTERVAL", "3600"), 3600)
 WATCH_INTERVAL = str_to_int(os.environ.get("WATCH_INTERVAL", "600"), 600)
-MOST_WANTED_INTERVAL = str_to_int(os.environ.get("MOST_WANTED_INTERVAL", "86400"), 86400)
-ACTIVITY_INTERVAL = str_to_int(os.environ.get("ACTIVITY_INTERVAL", "3600"), 3600)
+MOST_WANTED_INTERVAL = str_to_int(os.environ.get("MOST_WANTED_INTERVAL", "604800"), 604800)
+ACTIVITY_INTERVAL = str_to_int(os.environ.get("ACTIVITY_INTERVAL", "86400"), 86400)
 EXPEDITIONS_INTERVAL = str_to_int(os.environ.get("EXPEDITIONS_INTERVAL", "3600"), 3600)
+LIVESTREAMS_INTERVAL = str_to_int(os.environ.get("LIVESTREAMS_INTERVAL", "600"), 600)
+
+# Jitter
+JITTER_FACTOR = 0.1
 
 # Home Assistant Discovery
 HA_DISCOVERY_PREFIX = os.environ.get("HA_DISCOVERY_PREFIX", "homeassistant")

@@ -14,7 +14,7 @@
           "callsign": "Your amateur radio callsign (e.g., W1AW)",
           "api_key": "ClubLog API key (request at clublog.org/need_api.php)",
           "email": "Email address associated with your ClubLog account",
-          "app_password": "Application Password generated in ClubLog Settings (not your main password)"
+          "app_password": "Application Password generated in ClubLog Settings — this is NOT your main login password. Go to ClubLog → Settings → Application Passwords to create one."
         }
       }
     },
@@ -22,20 +22,12 @@
       "invalid_callsign": "Invalid callsign format. Please enter a valid amateur radio callsign.",
       "api_key_required": "API key is required.",
       "email_required": "Email address is required.",
-      "app_password_required": "Application Password is required.",
+      "app_password_required": "Application Password is required (not your main login password).",
       "cannot_connect": "Unable to connect to ClubLog. Check your credentials.",
-      "invalid_auth": "Invalid authentication. Check your API key, email, and application password."
+      "invalid_auth": "Invalid authentication. Check your API key, email, and Application Password."
     },
     "abort": {
       "already_configured": "This callsign is already configured"
-    }
-  },
-  "options": {
-    "step": {
-      "init": {
-        "title": "ClubLog Options",
-        "description": "Configure polling intervals and display options"
-      }
     }
   },
   "entity": {
@@ -48,6 +40,33 @@
       },
       "dxcc_verified_total": {
         "name": "DXCC Verified"
+      },
+      "active_expeditions": {
+        "name": "Active Expeditions"
+      },
+      "most_wanted_count": {
+        "name": "Most Wanted Entities"
+      },
+      "watch_total_qsos": {
+        "name": "Total QSOs"
+      },
+      "watch_is_expedition": {
+        "name": "Is Expedition"
+      },
+      "watch_has_oqrs": {
+        "name": "Has OQRS"
+      },
+      "watch_last_upload": {
+        "name": "Last Upload"
+      },
+      "active_livestreams": {
+        "name": "Active Livestreams"
+      },
+      "band_activity": {
+        "name": "Band Activity"
+      },
+      "api_consecutive_errors": {
+        "name": "API Errors"
       }
     },
     "binary_sensor": {

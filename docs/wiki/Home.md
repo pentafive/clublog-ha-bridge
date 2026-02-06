@@ -39,7 +39,7 @@ You need four pieces of information from ClubLog:
 |------------|----------------|
 | **API Key** | [Request here](https://clublog.org/need_api.php) or via ClubLog helpdesk |
 | **Email** | Your ClubLog account email |
-| **Application Password** | ClubLog Settings > Application Passwords (NOT your login password) |
+| **Application Password** | [ClubLog Settings > Application Passwords](https://clublog.org/edituser.php?tab=6) (NOT your login password) |
 | **Callsign** | Your amateur radio callsign |
 
 **Important:** Use an Application Password, not your main ClubLog login password. Application Passwords are designed for third-party integrations and can be revoked independently.
@@ -113,5 +113,6 @@ All intervals include ±10% random jitter to avoid synchronized polling bursts, 
 ## Support
 
 - [GitHub Issues](https://github.com/pentafive/clublog-ha-bridge/issues)
+- [Buy Me a Coffee](https://buymeacoffee.com/pentafive) — Support development of this and other HA integrations
 - [ClubLog](https://clublog.org/)
 - [Support ClubLog](https://clublog.org/donate.php) — If you find ClubLog valuable, please consider donating

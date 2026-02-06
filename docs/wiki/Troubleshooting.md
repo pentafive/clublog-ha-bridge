@@ -60,10 +60,9 @@ ClubLog distinguishes between your **login password** (used to sign in to clublo
 
 **How to create an Application Password:**
 1. Log in to [clublog.org](https://clublog.org)
-2. Go to **Settings**
-3. Find **Application Passwords** section
-4. Generate a new Application Password
-5. Copy it into the integration configuration
+2. Go to [Settings > Application Passwords](https://clublog.org/edituser.php?tab=6)
+3. Generate a new Application Password
+4. Copy it into the integration configuration
 
 **Why Application Passwords?**
 - Can be revoked independently without changing your login

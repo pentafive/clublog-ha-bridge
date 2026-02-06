@@ -14,7 +14,7 @@
           "callsign": "Your amateur radio callsign (e.g., W1AW)",
           "api_key": "ClubLog API key (request at clublog.org/need_api.php)",
           "email": "Email address associated with your ClubLog account",
-          "app_password": "Application Password generated in ClubLog Settings — this is NOT your main login password. Go to ClubLog → Settings → Application Passwords to create one."
+          "app_password": "Application Password — NOT your main login password. Create one at clublog.org/edituser.php?tab=6"
         }
       }
     },

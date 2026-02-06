@@ -30,7 +30,7 @@ def sample_watch():
         "has_oqrs": True,
         "clublog_info": {
             "total_qsos": 15234,
-            "last_upload": "2026-02-01 14:30:00",
+            "last_clublog_upload": "2026-02-01 14:30:00",
             "first_qso": "2005-03-15",
             "last_qso": "2026-01-31",
         },

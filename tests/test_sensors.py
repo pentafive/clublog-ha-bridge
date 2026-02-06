@@ -81,7 +81,7 @@ SENSORS = {
     },
     "watch_last_upload": {
         "value_fn": lambda data: (
-            data.watch.get("clublog_info", {}).get("last_upload")
+            data.watch.get("clublog_info", {}).get("last_clublog_upload")
             if data.watch
             else None
         ),

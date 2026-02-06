@@ -121,13 +121,12 @@ class ClubLogCoordinator(DataUpdateCoordinator[ClubLogData]):
         self._email = entry.data[CONF_EMAIL]
         self._app_password = entry.data[CONF_APP_PASSWORD]
 
-        # Per-endpoint next-fetch timestamps (staggered to avoid burst)
+        # Per-endpoint next-fetch timestamps — all due immediately on first cycle.
+        # Sequential async fetches within one cycle already avoid API burst.
         now = time.monotonic()
         self._next_fetch: dict[str, float] = {}
-        for i, (endpoint, _interval) in enumerate(ENDPOINT_INTERVALS.items()):
-            # Stagger initial fetches: first endpoint immediate, others offset
-            stagger = i * 5  # 5 seconds between each endpoint on first run
-            self._next_fetch[endpoint] = now + stagger
+        for endpoint in ENDPOINT_INTERVALS:
+            self._next_fetch[endpoint] = now
 
         # Persistent data across partial updates
         self._data = ClubLogData()
@@ -273,28 +272,28 @@ class ClubLogCoordinator(DataUpdateCoordinator[ClubLogData]):
         url = f"{CLUBLOG_API_BASE}{CLUBLOG_WATCH_ENDPOINT}"
         async with session.get(url, params=params, headers=headers) as resp:
             resp.raise_for_status()
-            self._data.watch = await resp.json(content_type=None)
+            self._data.watch = await resp.json(content_type=None) or {}
 
     async def _fetch_most_wanted(self, session: Any, headers: dict[str, str]) -> None:
         """Fetch most wanted list (no auth required)."""
         url = f"{CLUBLOG_API_BASE}{CLUBLOG_MOST_WANTED_ENDPOINT}"
         async with session.get(url, params={"api": "1"}, headers=headers) as resp:
             resp.raise_for_status()
-            self._data.most_wanted = await resp.json(content_type=None)
+            self._data.most_wanted = await resp.json(content_type=None) or {}
 
     async def _fetch_expeditions(self, session: Any, headers: dict[str, str]) -> None:
         """Fetch active expeditions (no auth required)."""
         url = f"{CLUBLOG_API_BASE}{CLUBLOG_EXPEDITIONS_ENDPOINT}"
         async with session.get(url, params={"api": "1"}, headers=headers) as resp:
             resp.raise_for_status()
-            self._data.expeditions = await resp.json(content_type=None)
+            self._data.expeditions = await resp.json(content_type=None) or []
 
     async def _fetch_livestreams(self, session: Any, headers: dict[str, str]) -> None:
         """Fetch active livestreams (no auth required)."""
         url = f"{CLUBLOG_API_BASE}{CLUBLOG_LIVESTREAMS_ENDPOINT}"
         async with session.get(url, params={"api": "1"}, headers=headers) as resp:
             resp.raise_for_status()
-            self._data.livestreams = await resp.json(content_type=None)
+            self._data.livestreams = await resp.json(content_type=None) or []
 
     async def _fetch_activity(self, session: Any, headers: dict[str, str]) -> None:
         """Fetch band activity data (lastyear=1 required to avoid timeout)."""
@@ -306,4 +305,4 @@ class ClubLogCoordinator(DataUpdateCoordinator[ClubLogData]):
         url = f"{CLUBLOG_API_BASE}{CLUBLOG_ACTIVITY_ENDPOINT}"
         async with session.get(url, params=params, headers=headers) as resp:
             resp.raise_for_status()
-            self._data.activity = await resp.json(content_type=None)
+            self._data.activity = await resp.json(content_type=None) or {}

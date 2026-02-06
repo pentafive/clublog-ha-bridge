@@ -487,7 +487,7 @@ def _process_watch(client: mqtt.Client) -> None:
     )
     publish_sensor(
         client, "watch_last_upload", "Last Upload",
-        clublog_info.get("last_upload", "Unknown"),
+        clublog_info.get("last_clublog_upload", "Unknown"),
         icon="mdi:cloud-upload",
     )
 

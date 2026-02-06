@@ -153,23 +153,19 @@ class TestDxccStatsComputation:
 
 
 class TestStaggerLogic:
-    """Tests for endpoint stagger logic (mirrors coordinator.__init__)."""
+    """Tests for endpoint initialization logic (mirrors coordinator.__init__)."""
 
-    def test_stagger_offsets(self):
-        """Endpoints should be staggered by 5s each."""
+    def test_all_endpoints_due_immediately(self):
+        """All endpoints should be due on first cycle (no stagger)."""
         endpoints = ["matrix", "watch", "most_wanted",
                      "expeditions", "livestreams", "activity"]
         now = 1000.0
         next_fetch = {}
-        for i, ep in enumerate(endpoints):
-            next_fetch[ep] = now + (i * 5)
+        for ep in endpoints:
+            next_fetch[ep] = now
 
-        assert next_fetch["matrix"] == 1000.0
-        assert next_fetch["watch"] == 1005.0
-        assert next_fetch["most_wanted"] == 1010.0
-        assert next_fetch["expeditions"] == 1015.0
-        assert next_fetch["livestreams"] == 1020.0
-        assert next_fetch["activity"] == 1025.0
+        for ep in endpoints:
+            assert next_fetch[ep] == now, f"{ep} should be due immediately"
 
     def test_six_endpoints(self):
         """All 6 endpoints should be tracked."""

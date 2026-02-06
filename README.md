@@ -54,7 +54,7 @@ docker compose up -d
 | **Callsign** | Your amateur radio callsign |
 | **API Key** | ClubLog API key ([request here](https://clublog.org/need_api.php)) |
 | **Email** | Email associated with your ClubLog account |
-| **Application Password** | Generated in ClubLog Settings > Application Passwords (not your main login password) |
+| **Application Password** | Generated in [ClubLog Settings > Application Passwords](https://clublog.org/edituser.php?tab=6) (not your main login password) |
 
 ### Polling Intervals
 
@@ -119,9 +119,15 @@ All intervals include ±10% jitter to avoid synchronized polling bursts.
 | [web888-ha-bridge](https://github.com/pentafive/web888-ha-bridge) | KiwiSDR Web-888 > Home Assistant |
 | [ntopng-ha-bridge](https://github.com/pentafive/ntopng-ha-bridge) | ntopng network monitoring > Home Assistant |
 
+## Support
+
+If you find this integration useful:
+- [Buy Me a Coffee](https://buymeacoffee.com/pentafive) — Support development of this and other HA integrations
+- [Support ClubLog](https://clublog.org/donate.php) — ClubLog is a free service maintained by G7VJR
+
 ## Disclaimer
 
-This project is independently developed and is not affiliated with, endorsed by, or connected to [ClubLog](https://clublog.org) or its maintainer. All ClubLog data is provided by the ClubLog API and remains the property of ClubLog. If you find ClubLog valuable, please consider [supporting the project](https://clublog.org/donate.php).
+This project is independently developed and is not affiliated with, endorsed by, or connected to [ClubLog](https://clublog.org) or its maintainer. All ClubLog data is provided by the ClubLog API and remains the property of ClubLog.
 
 ## License
 

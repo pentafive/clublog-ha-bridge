@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2026-02-06
+
+### Fixed
+- Initial stagger bug: all endpoints now fetch on first coordinator cycle (was: only matrix fetched, others waited 5 minutes due to stagger vs 300s wake cycle)
+- Watch `last_upload` key name: API uses `last_clublog_upload`, not `last_upload` (verified against live API responses)
+- Null response guards on all endpoint fetches — prevents crash if API returns empty body
+
+### Changed
+- Application Password docs now link directly to `clublog.org/edituser.php?tab=6`
+- Config flow app_password description shortened for cleaner UI
+- Wiki uses logo image instead of icon for consistency with README
+
+### Added
+- Buy Me a Coffee link in README and wiki
+
 ## [0.2.0] - 2026-02-05
 
 ### Added

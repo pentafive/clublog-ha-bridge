@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/pentafive/clublog-ha-bridge/main/images/icon.png" alt="ClubLog HA Bridge" width="128">
+  <img src="https://raw.githubusercontent.com/pentafive/clublog-ha-bridge/main/images/logo.png" alt="ClubLog HA Bridge" width="400">
 </p>
 
 # ClubLog HA Bridge
